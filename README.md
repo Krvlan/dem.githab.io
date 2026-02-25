@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
+ <head>
     <title>Моя презентация</title>
   </head>
-</html>
-
+  <body>
+    
 <p>
   Нажмите, чтобы скачать или открыть презентацию:
   <a href="СетьВводный.pptx">Презентация в формате .pptx</a>
@@ -12,5 +12,5 @@
   <a href="index.html">Файл проверки работы с кириллицей .html</a>
 </p>
 
-</body>
+  </body>
 </html>
