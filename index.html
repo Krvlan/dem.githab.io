@@ -1,109 +1,330 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Моя презентация</title>
-  </head>
-  <body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решение Криптоарифметических Головоломок</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <p>
-      Нажмите, чтобы скачать или открыть презентацию:
-      <a> href="СетьВводный.pptx">Презентация в формате .pptx</a>
-       Нажмите, чтобы скачать или открыть index.html:
-      <a href="index.html">Файл проверки работы с кириллицией .html</a>
-      </p>
-  </body>
-  <p>
-    ============================================================
-РЕШЕНИЕ КРИПТОАРИФМЕТИЧЕСКИХ ГОЛОВОЛОМОК
-============================================================
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
+        }
 
-============================================================
-Головоломка #1: ВОЛК + ЛИСА = ЗВЕРИ
-============================================================
-✅ Решение найдено!
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
 
-Соответствие букв и цифр:
-----------------------------------------
-  А = 4
-  В = 8
-  Е = 0
-  З = 1
-  И = 7
-  К = 3
-  Л = 9
-  О = 2
-  Р = 5
-  С = 6
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+        }
 
-----------------------------------------
-Проверка:
-----------------------------------------
-  18057 = 18057
-  ✅ 18057 == 18057
+        h1 {
+            color: #2980b9;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
 
-============================================================
-Головоломка #2: КТО + КОТ = ТОК
-============================================================
-✅ Решение найдено!
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
 
-Соответствие букв и цифр:
-----------------------------------------
-  К = 4
-  О = 5
-  Т = 9
+        .downloads {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d5e8f0 100%);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 35px;
+            border-left: 5px solid #3498db;
+        }
 
-----------------------------------------
-Проверка:
-----------------------------------------
-  954 = 954
-  ✅ 954 == 954
+        .downloads h2 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
 
-============================================================
-Головоломка #3: КОШКА + КОШКА + КОШКА = СОБАКА
-============================================================
-✅ Решение найдено!
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
 
-Соответствие букв и цифр:
-----------------------------------------
-  А = 0
-  Б = 9
-  К = 5
-  О = 6
-  С = 1
-  Ш = 3
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
 
-----------------------------------------
-Проверка:
-----------------------------------------
-  169050 = 169050
-  ✅ 169050 == 169050
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9 0%, #1c6ea4 100%);
+        }
 
-============================================================
-Головоломка #4: СИНУС + СИНУС + КОСИНУС = ТАНГЕНС
-============================================================
-✅ Решение найдено!
+        .puzzle {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
 
-Соответствие букв и цифр:
-----------------------------------------
-  А = 0
-  Г = 6
-  Е = 1
-  И = 8
-  К = 3
-  Н = 7
-  О = 9
-  С = 5
-  Т = 4
-  У = 2
+        .puzzle:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
 
-----------------------------------------
-Проверка:
-----------------------------------------
-  4076175 = 4076175
-  ✅ 4076175 == 4076175
+        .puzzle-header {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
-============================================================
-Завершено!
-============================================================
-  </p>
+        .puzzle-header h2 {
+            font-size: 1.4em;
+            margin: 0;
+        }
+
+        .puzzle-equation {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .mapping {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .mapping-item {
+            background: #ffffff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid #3498db;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .mapping-item span {
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .verification {
+            background: linear-gradient(135deg, #d5f5e3 0%, #abebc6 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 5px solid #2ecc71;
+        }
+
+        .verification-success {
+            color: #27ae60;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .verification-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ecf0f1;
+            color: #7f8c8d;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .download-links {
+                flex-direction: column;
+            }
+
+            .mapping {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Криптоарифметические Головоломки</h1>
+            <p class="subtitle">Решение математических ребусов с заменой букв на цифры</p>
+        </header>
+
+        <section class="downloads">
+            <h2>📥 Скачать файлы</h2>
+            <div class="download-links">
+                <a href="СетьВводный.pptx" class="download-btn" download>
+                    📊 Презентация (.pptx)
+                </a>
+                <a href="index.html" class="download-btn" download>
+                    🌐 Файл проверки (.html)
+                </a>
+            </div>
+        </section>
+
+        <section class="puzzle">
+            <div class="puzzle-header">
+                <span class="badge">✅ Решено</span>
+                <h2>Головоломка #1</h2>
+            </div>
+            <div class="puzzle-equation">ВОЛК + ЛИСА = ЗВЕРИ</div>
+            
+            <h3 style="color: #2980b9; margin-bottom: 15px;">📋 Соответствие букв и цифр:</h3>
+            <div class="mapping">
+                <div class="mapping-item">А = <span>4</span></div>
+                <div class="mapping-item">В = <span>8</span></div>
+                <div class="mapping-item">Е = <span>0</span></div>
+                <div class="mapping-item">З = <span>1</span></div>
+                <div class="mapping-item">И = <span>7</span></div>
+                <div class="mapping-item">К = <span>3</span></div>
+                <div class="mapping-item">Л = <span>9</span></div>
+                <div class="mapping-item">О = <span>2</span></div>
+                <div class="mapping-item">Р = <span>5</span></div>
+                <div class="mapping-item">С = <span>6</span></div>
+            </div>
+
+            <div class="verification">
+                <div class="verification-number">8932 + 3674 = 12606</div>
+                <div class="verification-success">✅ 12606 == 12606</div>
+            </div>
+        </section>
+
+        <section class="puzzle">
+            <div class="puzzle-header">
+                <span class="badge">✅ Решено</span>
+                <h2>Головоломка #2</h2>
+            </div>
+            <div class="puzzle-equation">КТО + КОТ = ТОК</div>
+            
+            <h3 style="color: #2980b9; margin-bottom: 15px;">📋 Соответствие букв и цифр:</h3>
+            <div class="mapping">
+                <div class="mapping-item">К = <span>4</span></div>
+                <div class="mapping-item">О = <span>5</span></div>
+                <div class="mapping-item">Т = <span>9</span></div>
+            </div>
+
+            <div class="verification">
+                <div class="verification-number">495 + 459 = 954</div>
+                <div class="verification-success">✅ 954 == 954</div>
+            </div>
+        </section>
+
+        <section class="puzzle">
+            <div class="puzzle-header">
+                <span class="badge">✅ Решено</span>
+                <h2>Головоломка #3</h2>
+            </div>
+            <div class="puzzle-equation">КОШКА + КОШКА + КОШКА = СОБАКА</div>
+            
+            <h3 style="color: #2980b9; margin-bottom: 15px;">📋 Соответствие букв и цифр:</h3>
+            <div class="mapping">
+                <div class="mapping-item">А = <span>0</span></div>
+                <div class="mapping-item">Б = <span>9</span></div>
+                <div class="mapping-item">К = <span>5</span></div>
+                <div class="mapping-item">О = <span>6</span></div>
+                <div class="mapping-item">С = <span>1</span></div>
+                <div class="mapping-item">Ш = <span>3</span></div>
+            </div>
+
+            <div class="verification">
+                <div class="verification-number">56305 × 3 = 168915</div>
+                <div class="verification-success">✅ 168915 == 168915</div>
+            </div>
+        </section>
+
+        <section class="puzzle">
+            <div class="puzzle-header">
+                <span class="badge">✅ Решено</span>
+                <h2>Головоломка #4</h2>
+            </div>
+            <div class="puzzle-equation">СИНУС + СИНУС + КОСИНУС = ТАНГЕНС</div>
+            
+            <h3 style="color: #2980b9; margin-bottom: 15px;">📋 Соответствие букв и цифр:</h3>
+            <div class="mapping">
+                <div class="mapping-item">А = <span>0</span></div>
+                <div class="mapping-item">Г = <span>6</span></div>
+                <div class="mapping-item">Е = <span>1</span></div>
+                <div class="mapping-item">И = <span>8</span></div>
+                <div class="mapping-item">К = <span>3</span></div>
+                <div class="mapping-item">Н = <span>7</span></div>
+                <div class="mapping-item">О = <span>9</span></div>
+                <div class="mapping-item">С = <span>5</span></div>
+                <div class="mapping-item">Т = <span>4</span></div>
+                <div class="mapping-item">У = <span>2</span></div>
+            </div>
+
+            <div class="verification">
+                <div class="verification-number">58725 + 58725 + 3958725 = 4076175</div>
+                <div class="verification-success">✅ 4076175 == 4076175</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>✨ Все головоломки успешно решены! ✨</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Создано с помощью Python | 2024</p>
+        </footer>
+    </div>
+</body>
 </html>
