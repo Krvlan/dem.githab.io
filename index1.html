@@ -26,7 +26,7 @@
             background: white;
             border-radius: 20px;
             padding: 40px;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
@@ -116,13 +116,73 @@
             border-top: 1px dashed #ddd;
         }
 
+        /* === Стили для блока Черепашки === */
+        .turtle-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            flex: 1;
+            min-width: 240px;
+            white-space: pre-wrap;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+            border-left: 4px solid #667eea;
+        }
+
+        .canvas-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 240px;
+        }
+
+        #turtleCanvas {
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .turtle-btn {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .turtle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(102, 126, 234, 0.4);
+        }
+
+        .turtle-btn:active {
+            transform: translateY(0);
+        }
+
         @media (max-width: 480px) {
-            .container {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 1.4rem;
-            }
+            .container { padding: 25px; }
+            h1 { font-size: 1.4rem; }
+            .turtle-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -194,11 +254,96 @@
             </ul>
         </div>
 
+        <!-- Черепаха -->
+        <div class="section">
+            <div class="section-title">🐢 Алгоритм «Прямоугольник»</div>
+            <div class="turtle-container">
+                <pre class="code-block">Черепаха
+алг Прямоугольник
+нач
+  опустить хвост
+
+  нц 2 раз
+    вперед(200)   | рисуем длинную сторону
+    вправо(90)    | поворачиваем на 90°
+    вперед(100)   | рисуем короткую сторону
+    вправо(90)    | поворачиваем на 90°
+  кц
+кон</pre>
+                <div class="canvas-wrapper">
+                    <canvas id="turtleCanvas" width="320" height="220"></canvas>
+                    <button class="turtle-btn" onclick="runTurtle()">▶ Запустить черепашку</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Дата -->
         <div class="date-badge">
             📅 4 мая 2026
         </div>
     </div>
+
+    <script>
+        function runTurtle() {
+            const canvas = document.getElementById('turtleCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Очистка холста
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Начальная позиция (центрируем прямоугольник 200x100)
+            let x = canvas.width / 2 - 100;
+            let y = canvas.height / 2 - 50;
+            let angle = 0; // 0° = вправо, 90° = вниз (координаты canvas)
+            
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            
+            // Исполнение алгоритма
+            for (let i = 0; i < 2; i++) {
+                // вперед(200)
+                let rad = angle * Math.PI / 180;
+                x += 200 * Math.cos(rad);
+                y += 200 * Math.sin(rad);
+                ctx.lineTo(x, y);
+                
+                // вправо(90)
+                angle += 90;
+                
+                // вперед(100)
+                rad = angle * Math.PI / 180;
+                x += 100 * Math.cos(rad);
+                y += 100 * Math.sin(rad);
+                ctx.lineTo(x, y);
+                
+                // вправо(90)
+                angle += 90;
+            }
+            
+            ctx.stroke();
+            
+            // Рисуем "черепашку" в финальной точке
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle * Math.PI / 180);
+            ctx.fillStyle = '#764ba2';
+            ctx.beginPath();
+            ctx.moveTo(12, 0);
+            ctx.lineTo(-6, -6);
+            ctx.lineTo(-6, 6);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        // Автоматический запуск при загрузке страницы
+        document.addEventListener('DOMContentLoaded', runTurtle);
+    </script>
 
 </body>
 </html>
