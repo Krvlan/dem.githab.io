@@ -246,6 +246,125 @@
             opacity: 0.9;
         }
 
+        /* === GitHub карточка === */
+        .github-card {
+            display: block;
+            background: linear-gradient(135deg, #24292e 0%, #404852 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 16px rgba(36, 41, 46, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .github-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .github-card:hover::before {
+            opacity: 1;
+        }
+
+        .github-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(36, 41, 46, 0.5);
+        }
+
+        .github-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .github-icon {
+            font-size: 2.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .github-info {
+            flex: 1;
+        }
+
+        .github-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .github-badge {
+            background: #2ea44f;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .github-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .github-commit {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #79c0ff;
+            border-left: 3px solid #2ea44f;
+            word-break: break-all;
+            line-height: 1.5;
+        }
+
+        .github-commit .hash {
+            color: #ffa657;
+            font-weight: 700;
+        }
+
+        .github-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .github-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .github-card:hover .github-arrow {
+            background: rgba(255,255,255,0.25);
+            transform: translateX(4px);
+        }
+
         .date-badge {
             text-align: center;
             color: #888;
@@ -352,6 +471,33 @@
                     <div class="crossword-desc">5 лекарственных препаратов</div>
                 </a>
             </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="section">
+            <div class="section-title">🐙 Репозиторий GitHub</div>
+            <a href="https://github.com/Krvlan/dem.githab.io/commit/ed5cf02b4ef1ca56ca9a930b8976fca835e7e181" 
+               class="github-card" 
+               target="_blank" 
+               rel="noopener noreferrer">
+                <div class="github-header">
+                    <span class="github-icon">🐙</span>
+                    <div class="github-info">
+                        <div class="github-title">
+                            dem.githab.io
+                            <span class="github-badge">Commit</span>
+                        </div>
+                        <div class="github-subtitle">Репозиторий проекта на GitHub</div>
+                    </div>
+                </div>
+                <div class="github-commit">
+                    <span class="hash">ed5cf02</span> · Просмотреть изменения в коммите
+                </div>
+                <div class="github-footer">
+                    <span>👤 Krvlan · GitHub</span>
+                    <span class="github-arrow">Открыть →</span>
+                </div>
+            </a>
         </div>
 
         <!-- Дата -->
